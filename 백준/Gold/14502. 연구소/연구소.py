@@ -1,4 +1,4 @@
-from itertools import permutations
+from itertools import combinations
 from collections import deque
 
 N, M = map(int, input().split())
@@ -11,7 +11,7 @@ def wall_selection():
             if grid[x][y]==0:
                 empty.append((x, y))
 
-    return permutations(empty, 3)
+    return combinations(empty, 3)
 
 # bfs
 def spread(ngrid):
