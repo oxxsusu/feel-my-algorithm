@@ -1,16 +1,13 @@
 def solution(phone_book):
-    answer = True
-    
-    hash = {}
-    for pnum in phone_book:
-        hash[pnum] = 1
+    d = {}
+    for num in phone_book:
+        d[num] = 1
         
-    for key in phone_book:
+    for key in d:
         temp = ''
         for k in key:
             temp += k
-            if temp in hash and temp != key:
-                answer = False
-
-    
-    return answer
+            if temp in d.keys() and temp != key:
+                return False
+            
+    return True
