@@ -1,7 +1,7 @@
 def solution(phone_book):
     d = {}
     for num in phone_book:
-        d[num] = 1
+        d[num] = True
         
     for key in d:
         temp = ''
