@@ -1,21 +1,16 @@
 from itertools import permutations
 
 def solution(k, dungeons):
-    size = len(dungeons)
-    order = [i for i in range(size)]
-    cases = list(permutations(order, size))
+    d = len(dungeons)  
+    ps = permutations(range(d), d)
     answer = 0
-
-    for case in cases:
-        count, heart = 0, k
-        for i in case:
-            enter, spend = dungeons[i]
-            if heart < enter:
-                break
-            count += 1
-            heart -= spend 
-            
-        if count > answer:
-            answer = count
+    
+    for p in ps:
+        power, depth = k, 0
+        for i in p:
+            if power >= dungeons[i][0]:
+                power -= dungeons[i][1]
+                depth += 1
+        answer = max(answer, depth)
     
     return answer
